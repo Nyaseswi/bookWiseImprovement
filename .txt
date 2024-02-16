@@ -1,2 +1,7 @@
-bookwise project
-jgje
+backend 
+port number = 5000 
+to start = nodemon .\index.js 
+check port number in broswer localhost:5000
+get = localhost:5000 = Hello world 
+create user = post method = localhost:5000/api/createuser = success:true
+req.body.name -change post-localhost:5000/api/createuser-send user credentials 
