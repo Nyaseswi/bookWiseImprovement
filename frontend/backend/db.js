@@ -6,15 +6,16 @@ const mongoDB = async () => {
         await mongoose.connect(mongoURI, { useNewUrlParser: true });
         console.log('MongoDB connection successful');
 
-        const fetched_data = await mongoose.connection.db.collection('books');
-        const data = await fetched_data.find({}).toArray();
+        // Get reference to the collection
+        const collection = mongoose.connection.db.collection('books');
 
-        console.log(); //data
-    } catch (error) {
-        console.error('Error connecting to MongoDB:', error.message);
+        // Fetch data using promises
+        const data = await collection.find({}).toArray();
+        console.log();
+        // console.log(data);
+    } catch (err) {
+        console.error('Error connecting to MongoDB:', err);
     }
-};
-
-
+}
 
 module.exports = mongoDB;
